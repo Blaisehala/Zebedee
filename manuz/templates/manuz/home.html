@@ -1,0 +1,13 @@
+{% extends "manuz/base.html"%}
+
+{% block content %}
+  {% for post in posts %}
+    <h1>{{post.title}}</h1>
+    By: {{post.author}} on: {{post.date}}
+    <p>{{post.image}}</p>
+
+
+
+  {% endfor %}
+
+{% endblock content %}
