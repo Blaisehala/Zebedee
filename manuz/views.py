@@ -1,28 +1,15 @@
 from datetime import date
-from multiprocessing import context
+
 from django.shortcuts import render
-
-posts = [
-  {
-    'author': 'Blaise',
-    'title': 'Post1',
-    'image': 'pic1',
-    'date': 'August 10',
-  },
-   {
-    'author': 'Blaise',
-    'title': 'Post2',
-    'image': 'pic1',
-    'date': 'August 11',
-  },
+from . models import Post
 
 
-]
+
 
 
 def home(request):
   context= {
-    'posts': posts
+    'posts': Post.objects.all()
   }
   return render(request, 'manuz/home.html', context)
 
