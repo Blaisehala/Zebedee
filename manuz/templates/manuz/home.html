@@ -2,9 +2,12 @@
 
 {% block content %}
   {% for post in posts %}
+  <p>{{post.image}}</p>
     <h1>{{post.title}}</h1>
-    By: {{post.author}} on: {{post.date}}
-    <p>{{post.image}}</p>
+    {{post.content}} <br>
+
+    By: {{post.author}} on: {{post.date_posted |date}}
+    {{post.likes}}
 
 
 
