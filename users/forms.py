@@ -2,7 +2,7 @@ from dataclasses import field, fields
 from django import forms
 from django.contrib.auth.models import User
 from django. contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, post
 
 
 class UserRegisterForm(UserCreationForm):
@@ -24,5 +24,12 @@ class UserUpdateForm(forms.ModelForm):
 
 class ProfileUpdateForm(forms.ModelForm):
   class Meta:
-    model = Profile
+    # model = Profile
     fields = ['image']
+
+
+class NewPostForm(forms.ModelForm):
+  class Meta:
+    model = User
+    exclude = ['title']
+  

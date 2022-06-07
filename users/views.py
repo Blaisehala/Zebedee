@@ -4,11 +4,35 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from users.models import post
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, NewPostForm
 from django. views.generic import CreateView
 
 
 # Create your views here.
+
+
+def home(request):
+  context= {
+    'posts': post.objects.all()
+  }
+  return render(request, 'users/home.html', context)
+
+
+def about(request):
+  return render(request, 'users/about.html', {'title': 'About'})
+
+
+
+
+
+
+
+
+
+
+
+
+
 def register(request):
   if request.method == 'POST':
     form = UserRegisterForm(request.POST)
@@ -52,11 +76,28 @@ def profile(request):
   
 
 class AddPostView(CreateView):
-  model = post
+  # model = post
   template_name = 'newpost.html'
   fields = ['title', 'caption', 'image']
 
   def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+      
+
+@login_required(login_url='/users/login/')
+def new_post(request):
+  current_user = request.user
+  if request.method == 'POST':
+    fom = NewPostForm(request.POST, request.FILES)
+    if fom.is_valid():
+      post = fom.save(commit=False)
+      post.user = current_user
+      post.save()
+    return redirect ('axel-home')
+
+  else:
+    fom= NewPostForm()
+  return render(request, 'users/newpost.html', {'fom': fom})
 

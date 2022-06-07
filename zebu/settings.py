@@ -33,9 +33,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    'manuz.apps.ManuzConfig',
+    
     'users.apps.UsersConfig',
+    'tinymce',
     'crispy_forms',
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -81,7 +83,7 @@ WSGI_APPLICATION = 'zebu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'zebu',
+        'NAME': 'users',
         'USER': 'moringa',
         'PASSWORD': 'Access',
     }
