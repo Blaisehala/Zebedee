@@ -1,1 +1,1 @@
-web: gunicorn zebu.wsgi --log-file -
+web:gunicorn zebu.wgi --log-file -
