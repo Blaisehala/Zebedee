@@ -3,26 +3,15 @@
 {% block content %}
  {% for post in posts %}
 
- <div class="card mb-3">
-  <div class="d-flex text-muted border-bottom py-2">
-      <!-- user metadata -->
-      <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}" alt="{{post.user}} profile picture">
-      <div class="pb-3 mb-0 small lh-sm w-100">
-        <div class="d-flex">
-          <a href="{% url 'user-posts' post.author.username%}">
-            <strong class="text-gray-dark"> @{{post.user}}</strong>
-          </a>
-        </div>
-        <!-- <span class="d-block">{{post.author.email}}</span> -->
-      </div>
-    </div>
-    <a href="{% url 'post-detail' post.id %}">
-      <img class=" image-fluid card-img-top post-image" src="{{post.image.url}}" alt="{{post.name}}">
-    </a>
+ 
+ <div class="card mt-5" style="width: 18rem;">
+  <h3>{{post.user}}</h3>
+  
+  <img src="{{post.image.url}}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{post.caption}}</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <p>{{post.caption}}</p>
+    <p class="card-text">{{post.likes}}</p>
+    
   </div>
 </div>
 
