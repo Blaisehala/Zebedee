@@ -16,7 +16,7 @@ def __str__(self):
   return f'{self.user.username} Profile'
 
 
-class post(models.Model):
+class Post(models.Model):
   image=models.ImageField(upload_to = 'profile_pics', default='no image')
   title = models.CharField(max_length=100, default='')
   post = HTMLField(null=True)
@@ -38,7 +38,7 @@ class post(models.Model):
 
 class Comment(models.Model):
   comment = models.TextField()
-  post = models.ForeignKey(post, on_delete=models.CASCADE, related_name='comments')
+  post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
   user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='comments')
   date = models.DateTimeField(auto_now_add=True, null=True)
   

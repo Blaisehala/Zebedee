@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages  
 from django.contrib.auth.decorators import login_required
 
-from users.models import post
+from users.models import Post
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, NewPostForm
 from django. views.generic import CreateView
 
@@ -13,7 +13,7 @@ from django. views.generic import CreateView
 
 def home(request):
   context= {
-    'posts': post.objects.all()
+    'posts': Post.objects.all()
   }
   return render(request, 'users/home.html', context)
 
@@ -90,14 +90,16 @@ class AddPostView(CreateView):
 def new_post(request):
   current_user = request.user
   if request.method == 'POST':
-    fom = NewPostForm(request.POST, request.FILES)
-    if fom.is_valid():
-      post = fom.save(commit=False)
+    form = NewPostForm(request.POST, request.FILES)
+    if form.is_valid():
+      post = form.save(commit=False)
+      print ('post')
+
       post.user = current_user
       post.save()
     return redirect ('axel-home')
 
   else:
-    fom= NewPostForm()
-  return render(request, 'users/newpost.html', {'fom': fom})
+    form= NewPostForm()
+  return render(request, 'users/newpost.html', {'form': form})
 
