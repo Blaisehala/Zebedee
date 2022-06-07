@@ -1,1 +1,1 @@
-web:gunicorn zebu.wsgi
+web: gunicorn zebu.wsgi
