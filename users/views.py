@@ -10,7 +10,7 @@ from django. views.generic import CreateView
 
 # Create your views here.
 
-
+@login_required
 def home(request):
   context= {
     'posts': Post.objects.all()
