@@ -2,15 +2,39 @@
 
 {% block content %}
   {% for post in posts %}
-  <p>{{post.image}}</p>
-    <h1>{{post.title}}</h1>
-    {{post.content}} <br>
 
-    By: {{post.author}} on: {{post.date_posted |date}}
-    {{post.likes}}
+  <article class="media content-section">
+    <div class="media-body">
+      <img class="rounded-circle account-img" src="{{ post.author.profile.image.url }}" alt="">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_posted }}</small>
+      </div>
+      <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+      <p>{{post.image}}</p>
+      <p class="article-content">{{ post.content }}</p>
+      By: {{post.author}} on: {{post.date_posted |date}}
+      {{post.likes}}
+    </div>
+  </article>
 
+
+
+
+
+ 
 
 
   {% endfor %}
 
 {% endblock content %}
+
+
+<style>
+.account-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+</style>
