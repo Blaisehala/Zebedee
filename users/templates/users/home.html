@@ -10,7 +10,7 @@
       <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}" alt="{{post.user}} profile picture">
       <div class="pb-3 mb-0 small lh-sm w-100">
         <div class="d-flex">
-          <a href="{% url 'user-posts' post.author.username%}">
+          <a href="{% url 'profile' %}">
             <strong class="text-gray-dark"> @{{post.user}}</strong>
           </a>
         </div>
@@ -30,17 +30,6 @@
   </div>
 </div>
 
---------------------------------------------------------
- <div class="card mt-5" style="width: 18rem;">
-  <h3>{{post.user}}</h3>
-  
-  <img src="{{post.image.url}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <p>{{post.caption}}</p>
-    <p class="card-text">{{post.likes}}</p>
-    
-  </div>
-</div>
 
 
 
