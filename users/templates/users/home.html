@@ -38,22 +38,6 @@
 
     </div>
 
-    <div class="col-md-6">
-      <div class="content-section">
-        <a href="{% url 'profile' %}">
-          <strong class="text-gray-dark"> @{{post.user}}</strong>
-        </a>
-        <p class='text-muted'>Suggestions for for You
-          <ul class="list-group">
-            <li class="list-group-item list-group-item-light">Latest Posts</li>
-            <li class="list-group-item list-group-item-light">Announcements</li>
-            <li class="list-group-item list-group-item-light">Calendars</li>
-            <li class="list-group-item list-group-item-light">etc</li>
-          </ul>
-        </p>
-      </div>
-
-    </div>
 
 
 
@@ -72,3 +56,20 @@
 {% endfor%}
 
 {% endblock content %}
+
+<div class="col-md-6">
+  <div class="content-section">
+    <a href="{% url 'profile' %}">
+      <strong class="text-gray-dark"> @{{post.user}}</strong>
+    </a>
+    <p class='text-muted'>Suggestions for for You
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-light">Latest Posts</li>
+        <li class="list-group-item list-group-item-light">Announcements</li>
+        <li class="list-group-item list-group-item-light">Calendars</li>
+        <li class="list-group-item list-group-item-light">etc</li>
+      </ul>
+    </p>
+  </div>
+
+</div>
