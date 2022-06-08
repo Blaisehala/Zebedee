@@ -26,7 +26,7 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ml-auto">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Axel</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -39,12 +39,11 @@
 
           {% if user.is_authenticated %}
           <a class="nav-link active" aria-current="page" href="{% url 'axel-home' %}"><i class="bi bi-house-door-fill"></i></a>
-          <a class="nav-link" href="{% url 'profile' %}"><i class="bi bi-messenger"></i></a>
+          <a class="nav-link" href="{% url 'profile' %}"><i class="bi bi-chat"></i></i></a>
 
-          
-          
           <a class="nav-link" href="{% url 'newpost' %}"> <i class="bi bi-plus-square"></i></a>
           <a class="nav-link" href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i></a>
+          <a class="nav-link" href="{% url 'profile' %}"><i class="bi bi-person-fill"></i></i></a>
           {% else %}
           <a class="nav-link" href="{% url 'login' %}">Login</a>
           <a class="nav-link" href="{% url 'register' %}">Register</a>
@@ -62,7 +61,7 @@
 
   <main role="main" class="container align-items-center">
     <div class="row">
-      <div class="col-md-8 ">
+      <div class="col-md-6">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{message.tags}}">
@@ -74,19 +73,7 @@
         {% block content %}{% endblock %}
       </div>
 
-      <div class="col-md-4">
-        <div class="content-section">
-          <h3>Our Sidebar</h3>
-          <p class='text-muted'>Suggestions for for You
-            <ul class="list-group">
-              <li class="list-group-item list-group-item-light">Latest Posts</li>
-              <li class="list-group-item list-group-item-light">Announcements</li>
-              <li class="list-group-item list-group-item-light">Calendars</li>
-              <li class="list-group-item list-group-item-light">etc</li>
-            </ul>
-          </p>
-        </div>
-      </div>
+     
     </div>
   </main>
 

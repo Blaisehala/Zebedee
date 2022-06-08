@@ -1,38 +1,74 @@
 {% extends "users/base.html"%}
 
 {% block content %}
- {% for post in posts %}
+{% for post in posts %}
 
- 
- <div class="card mb-3">
-  <div class="d-flex text-muted border-bottom py-2">
-      <!-- user metadata -->
-      <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}" alt="{{post.user}} profile picture">
-      <div class="pb-3 mb-0 small lh-sm w-100">
-        <div class="d-flex">
-          <a href="{% url 'profile' %}">
-            <strong class="text-gray-dark"> @{{post.user}}</strong>
-          </a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="card mb-3">
+        <div class="d-flex text-muted border-bottom py-2">
+          <!-- user metadata -->
+          <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}"
+            alt="{{post.user}} profile picture">
+          <div class="pb-3 mb-0 small lh-sm w-100">
+            <div class="d-flex">
+              <a href="{% url 'profile' %}">
+                <strong class="text-gray-dark"> @{{post.user}}</strong>
+              </a>
+            </div>
+
+          </div>
         </div>
-      
+
+        <img class=" image-fluid card-img-top post-image" src="{{post.image.url}}" alt="{{post.name}}">
+
+        <div class="card-body">
+          <i class="bi bi-heart"></i>
+          <h5 class="card-title">{{post.caption}}</h5>
+
+
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+            content.
+            This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
       </div>
+
     </div>
-    
-      <img class=" image-fluid card-img-top post-image" src="{{post.image.url}}" alt="{{post.name}}">
-    
-  <div class="card-body">
-    <i class="bi bi-heart"></i>
-    <h5 class="card-title">{{post.caption}}</h5>
+
+    <div class="col-md-6">
+      <div class="content-section">
+        <a href="{% url 'profile' %}">
+          <strong class="text-gray-dark"> @{{post.user}}</strong>
+        </a>
+        <p class='text-muted'>Suggestions for for You
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">Latest Posts</li>
+            <li class="list-group-item list-group-item-light">Announcements</li>
+            <li class="list-group-item list-group-item-light">Calendars</li>
+            <li class="list-group-item list-group-item-light">etc</li>
+          </ul>
+        </p>
+      </div>
+
+    </div>
 
 
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
   </div>
+
+
 </div>
 
 
 
 
- {% endfor%}
+
+
+
+
+{% endfor%}
 
 {% endblock content %}
