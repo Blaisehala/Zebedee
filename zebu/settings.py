@@ -15,6 +15,9 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +30,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 MODE = config("MODE", default="dev")
 # SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
+
+
+cloudinary.config(
+    cloud_name='dnitcpr5j',
+    api_key='626861449813592',
+    api_secret='NpzaDec5IN6mLwumwyjEHtdKJfE'
+)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-olz3*c^_l6b6911jn3z@uc^cjdz^pkf3d@u2))5cus%70=^1cc'
@@ -52,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [

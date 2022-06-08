@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from users.models import *
 from tinymce.models import HTMLField
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Profile(models.Model):
@@ -17,7 +18,7 @@ def __str__(self):
 
 
 class Post(models.Model):
-  image=models.ImageField(upload_to = 'profile_pics', default='no image')
+  image=CloudinaryField('image', blank=True, null=True)
   title = models.CharField(max_length=100, default='')
   post = HTMLField(null=True)
   caption = models.TextField(max_length=300, null=True)
