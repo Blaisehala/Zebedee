@@ -17,5 +17,5 @@ python-decouple==3.6
 six==1.16.0
 soupsieve==2.3.2.post1
 sqlparse==0.4.2
-urllib3==1.26.9
+urllib3==1.26.19
 whitenoise==6.2.0
